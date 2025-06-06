@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pets &amp; Boundaries</title>
+
+    <!-- Tailwind CDN for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom fonts (served from Vandstrom) -->
+    <style>
+      @font-face {
+        font-family: "RecklessNeueBook";
+        src: url("https://vandstrom.com/fonts/reckless/RecklessNeueTRIAL-Book.woff2") format("woff2");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "DrukWideMedium";
+        src: url("https://vandstrom.com/fonts/druk/Druk-Wide-Medium.woff2") format("woff2");
+        font-display: swap;
+      }
+
+      /* CSS custom‑properties taken from Vandstrom palette */
+      :root {
+        --ivory: #e4d7d0;
+        --green: #446266;
+        --light-green: #5d7f80;
+        --dark-green: #213438;
+      }
+
+      /* Base elements – no @apply (works without Tailwind build step) */
+      body {
+        background-color: var(--dark-green);
+        color: var(--ivory);
+        font-family: "Poppins", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.625;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: RecklessNeueBook, serif;
+        letter-spacing: -0.02em; /* similar to tracking-tight */
+      }
+
+      /* Utility helper reused from earlier */
+      .font-brand {
+        font-family: DrukWideMedium, sans-serif;
+      }
+
+      /* Parallax image rule – unchanged */
+      .parallax {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 120%;
+        height: 120%;
+        object-fit: cover;
+        transform: translateX(-50%);
+        will-change: transform;
+      }
+    </style>
+  </head>
+
+<body class="overflow-x-clip bg-[var(--dark-green)] text-[var(--ivory)] font-sans antialiased leading-relaxed">
+    <!-- ✦ Custom cursor bubble ✦ -->
+    <div id="cursorBubble"
+        class="pointer-events-none fixed left-0 top-0 z-50
+                h-10 w-10 rounded-full           
+                bg-[var(--light-green)] opacity-75
+                mix-blend-difference
+                -translate-x-1/2 -translate-y-1/2
+                transition-transform duration-50 ease-linear
+                will-change-transform">
+    </div>
+
+
+
+
+    <!-- ================= HERO ================= -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+      <div class="fixed inset-0 pointer-events-none bg-gradient-to-b from-black/40 via-black/25 to-transparent mix-blend-multiply z-10"></div>
+      <div class="relative z-20 text-center px-4">
+        <p class="uppercase text-sm font-brand tracking-widest mb-6">welcome to</p>
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-normal mb-6 max-w-4xl mx-auto">
+          Pets are the Pathway to <span class="text-[var(--light-green)]">Healthy Boundaries &amp;</span> Emotional Growth
+        </h1>
+        <p class="max-w-3xl mx-auto">
+          Discover how animals strengthen the connections for empathy, resilience and respect, essential skills to a developing child.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= CONTENT SECTIONS ================= -->
+    <main class="relative bg-[var(--green)] text-[var(--ivory)]">
+      <!-- ================= LEARNING BOUNDARIES ================= -->
+      <section class="border-t border-[rgba(33,52,56,0.15)] grid lg:grid-cols-2 gap-10 px-5 md:px-10 py-16 lg:py-24">
+        <header>
+          <p class="uppercase text-xs font-brand tracking-widest mb-4">Learning boundaries</p>
+          <h2 class="text-3xl md:text-4xl font-normal mb-8 max-w-xl">
+            Pets give clear but gentle lessons in consent, autonomy &amp; personal space.
+          </h2>
+        </header>
+        <div class="prose max-w-none leading-relaxed">
+          <p>
+            A cat’s playful bite or a dog’s quiet growl is more than animalistic behaviour, it's boundaries made visible. By
+            reading these cues we get daily, a childs social reconigtion skills are sharpened. They learn to respect
+            personal space, understand consent, and recognize when someone needs a break. 
+          </p>
+           <figure class="italic text-sm opacity-80">
+            <blockquote>“There is growing evidence that children turn to their pets for comfort, reassurance, and emotional
+              support when feeling anger, sadness, or happiness.”</blockquote>
+            <figcaption class="mt-2">— Purewal et&nbsp;al., 2017</figcaption>
+          </figure>
+          <ul class="font-semibold list-disc pl-6">
+            <li>
+                <a href="https://www.firstfiveyears.org.au/lifestyle/the-benefits-of-pets-for-children" target="_blank" rel="noopener">Children with pets in their first five years emotionally open up and play more with a family pet by their side</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= HOW IT WORKS (CARD STACK) ================= -->
+      <section class="border-t border-[rgba(33,52,56,0.15)] relative py-16 lg:py-28 px-5 md:px-10">
+        <div class="relative z-10 max-w-3xl mx-auto text-center mb-16">
+          <p class="uppercase text-xs font-brand tracking-widest mb-4">How it works</p>
+          <h2 class="text-3xl md:text-4xl font-normal">
+            Three subtle stages of social growth every <span class="text-[var(--light-green)]">pet parent</span> goes through
+          </h2>
+        </div>
+
+        <div class="space-y-16 lg:space-y-24 [counter-reset:card]">
+          <!-- card 1 -->
+          <div class="relative bg-[var(--dark-green)] rounded-2xl overflow-hidden border border-[rgba(228,215,208,0.15)] shadow-lg max-w-4xl mx-auto flex flex-col lg:flex-row">
+            <img src="images/cat_pet.jpeg" class="h-60 lg:h-auto lg:w-1/2 object-cover" />
+            <div class="p-8 lg:p-14 flex flex-col justify-center gap-6">
+              <p class="font-brand text-xs uppercase tracking-widest">01</p>
+              <h3 class="text-2xl font-normal">Observation Becomes Empathy</h3>
+              <p>The moment a child notices their kitten prefers gentle strokes, they instinctively connect sensation with feeling, the beginnings of empathy.</p>
+            </div>
+          </div>
+
+          <!-- card 2 -->
+          <div class="relative bg-[var(--dark-green)] rounded-2xl overflow-hidden border border-[rgba(228,215,208,0.15)] shadow-lg max-w-4xl mx-auto flex flex-col lg:flex-row lg:flex-row-reverse">
+            <img src="images/cat.jpeg"  class="h-60 lg:h-auto lg:w-1/2 object-cover" />
+            <div class="p-8 lg:p-14 flex flex-col justify-center gap-6">
+              <p class="font-brand text-xs uppercase tracking-widest">02</p>
+              <h3 class="text-2xl font-normal">Responsibility Becomes Routine</h3>
+              <p>Daily feeding and walks create structure and routine. The emerging habits become a blueprint for self‑management in other parts of life.</p>
+            </div>
+          </div>
+
+          <!-- card 3 -->
+          <div class="relative bg-[var(--dark-green)] rounded-2xl overflow-hidden border border-[rgba(228,215,208,0.15)] shadow-lg max-w-4xl mx-auto flex flex-col lg:flex-row">
+            <img src="images/dog.jpg" class="h-60 lg:h-auto lg:w-1/2 object-cover" />
+            <div class="p-8 lg:p-14 flex flex-col justify-center gap-6">
+              <p class="font-brand text-xs uppercase tracking-widest">03</p>
+              <h3 class="text-2xl font-normal">Attachment Becomes Resilience</h3>
+              <p>Bonds with animals provide safe emotional support. Over time, this turns into a stronger emotional foundation during times of stress.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+ <!-- Individualistic Boundaries -->
+      <section class="border-t border-[rgba(33,52,56,0.15)] py-16 lg:py-24 px-5 md:px-10">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-normal mb-6">Individualistic Boundaries</h2>
+          <p class="prose prose-invert">
+            Boundaries can also be learned in ways not directly shown by the pets. In a virtual therapy dog session, a psychiatric patient could detach emotionally from his situation and institutional identity by thinking and reconnecting to memories of his pet relationships in the past. As one clinician described, the session “allows the
+            patient to leave the drama of being on the unit… It’s a checkout, so to speak.” 
+            <figure class="italic text-sm opacity-80 mt-6">
+                <figcaption class="mt-2">— Scheck&nbsp;et&nbsp;al., 2022</figcaption>
+            </figure>
+
+            Even in an environment that constantly wears his already low mental state, the therapy dog's presence created the opportunity for autonomy and mental separation from his situation, which is an essential emotional boundary.
+          </p>
+        </div>
+      </section>
+
+      <!-- Dog Ownership in Recovery -->
+      <section class="border-t border-[rgba(33,52,56,0.15)] py-16 lg:py-24 px-5 md:px-10 bg-[var(--dark-green)]">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-normal mb-6">Dog Ownership in Recovery</h2>
+          <p class="prose prose-invert">
+            A 48-year-old woman who was recovering from substance abuse was shared in a 2023 study where she was helped with emotional boundaries by her dog. She said she learned them as, "He needs a very calm and predictable environment and I need that too... It’s much easier to set boundaries for others, but this has become infiltrated in me too.”
+
+Her care for the dog helped make a safe environment where they both had peace in their lives. 
+Care was inspired by a desire for a life of peace and structure, away from the negative undertones behind her life while she let herself waste away with drugs. Her dog gave her the courage to say “no," and create a new life for herself, and her dog.
+             <figure class="italic text-sm opacity-80 mt-6">
+                <figcaption class="mt-2">— Kerr‑Little&nbsp;et&nbsp;al., 2023</figcaption>
+            </figure>
+          </p>
+        </div>
+      </section>
+
+      <!-- Stress Management -->
+      <section class="border-t border-[rgba(33,52,56,0.15)] py-16 lg:py-24 px-5 md:px-10">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-normal mb-6">Stress Management</h2>
+          <p class="prose prose-invert">
+            Pet ownership is found to have a relationship with lower stress levels and strong emotional control and resilience. This is because pets often provide a constant source of comfort, acting as anchors in people's everyday lives. They give the safety an individual needs when overcome with an emotional situation, and they provide an outlet for it as well. Just by caring for a pet's needs, people learn how to manage their own life, their boundaries, and their stress.
+          </p>
+          <figure class="italic text-sm opacity-80 mt-6">
+            <blockquote>“Considering research suggesting mental health benefits of pet ownership, this study explores the
+              relationship between pet ownership, social support… in a cohort of students.”</blockquote>
+            <figcaption class="mt-2">— Barker&nbsp;et&nbsp;al., 2020</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Social Development -->
+      <section class="border-t border-[rgba(33,52,56,0.15)] py-16 lg:py-24 px-5 md:px-10 bg-[var(--dark-green)]">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-normal mb-6">Social Development</h2>
+          
+          <p class="prose prose-invert">
+            Children and teens who grow up with a pet of their own often show a good level of social awareness, sensitivity to social and physical boundaries, and responsibility.  
+            <figure class="italic text-sm opacity-80 mt-6">
+            <blockquote>
+                "Pet owners reported lower delinquency and higher empathy than non‑owners… though these effects became non‑significant after demographic factors were controlled.”
+            </blockquote>
+            <figcaption class="mt-2">— Jacobson &amp; Chang, 2018</figcaption>
+          </figure>
+        </p>
+        </div>
+      </section>
+
+      <!-- Quality of Life -->
+      <section class="border-t border-[rgba(33,52,56,0.15)] py-16 lg:py-24 px-5 md:px-10">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-normal mb-6">Quality of Life</h2>
+          <p class="prose prose-invert">
+            Regular routines like feeding, walking, buying toys give owners a sense of control that boosts mental
+            well‑being and life satisfaction.
+          </p>
+          <figure class="italic text-sm opacity-80 mt-6">
+            <blockquote>
+                “Pet ownership is the most common form of human‑animal interaction, and anecdotally, it can lead to improved physical and mental health for owners.”
+            </blockquote>
+            <figcaption class="mt-2">— Scoresby&nbsp;et&nbsp;al., 2021</figcaption>
+          </figure>
+          <p class="mt-6">Hospice patients describe pets as “life savers” that help them manage PTSD and anxiety <a href="https://www.researchgate.net/publication/347665228_Companion-animal-inclusive_domestic_violence_practice_Implications_for_service_delivery_and_social_work" target="_blank">(Aotearoa New Zealand Social Work)</a></p>
+        </div>
+      </section>
+
+
+
+        <!-- ================= BIBLIOGRAPHY ================= -->
+    <section id="bibliography"
+         class="min-h-screen          
+                bg-[var(--dark-green)] 
+                text-[var(--ivory)]
+                border-t border-[rgba(33,52,56,0.15)]
+                py-16 lg:py-24 px-5 md:px-10">
+        <h2 class="text-3xl md:text-4xl font-normal mb-8 text-center">Bibliography</h2>
+        <ul class="space-y-6 list-disc pl-6 max-w-5xl mx-auto prose prose-invert">
+          <li>Barker, S. B., Schubert, C. M., Barker, R. T., Kuo, S. I-C., Kendler, K. S., &amp; Dick, D. M. (2020). <em>The relationship between pet ownership, social support, and internalizing symptoms in students from the first to the fourth year of college</em>. <em>Applied Developmental Science, 24</em>(3), 279–293. <a href="https://doi.org/10.1080/10888691.2018.1476148" target="_blank">https://doi.org/10.1080/10888691.2018.1476148</a></li>
+
+          <li>Gómez-Leal, R., Costa, A., Megías-Robles, A., Fernández-Berrocal, P., &amp; Faria, L. (2021). <em>Relationship between emotional intelligence and empathy towards humans and animals</em>. <em>PeerJ, 9</em>, e11274. <a href="https://doi.org/10.7717/peerj.11274" target="_blank">https://doi.org/10.7717/peerj.11274</a></li>
+
+          <li>Jacobson, K. C., &amp; Chang, L. (2018). <em>Associations between pet ownership and attitudes toward pets with youth socio-emotional outcomes</em>. <em>Frontiers in Psychology, 9</em>, 2304. <a href="https://doi.org/10.3389/fpsyg.2018.02304" target="_blank">https://doi.org/10.3389/fpsyg.2018.02304</a></li>
+
+          <li>Kerr-Little, A., McGrath, C., &amp; Muldoon, O. T. (2023). <em>The Role of Pet Ownership in Supporting Recovery from Substance Use: A Qualitative Study of Human-Animal Interactions</em>. <em>Human–Animal Interactions</em>. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10523709/" target="_blank">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10523709/</a></li>
+
+          <li>Purewal, R., Christley, R., Kordas, K., Joinson, C., Meints, K., Gee, N., &amp; Westgarth, C. (2017). <em>Companion animals and child/adolescent development: A systematic review of the evidence</em>. <em>International Journal of Environmental Research and Public Health, 14</em>(3), 234. <a href="https://doi.org/10.3390/ijerph14030234" target="_blank">https://doi.org/10.3390/ijerph14030234</a></li>
+
+          <li>Scheck, H., Williamson, L., &amp; Dell, C. A. (2022). <em>Understanding psychiatric patients’ experience of virtual animal-assisted therapy sessions during the COVID-19 pandemic</em>. <em>People and Animals: The International Journal of Research and Practice, 5</em>(1), Article 6. <a href="https://docs.lib.purdue.edu/paij/vol5/iss1/6/" target="_blank">https://docs.lib.purdue.edu/paij/vol5/iss1/6/</a></li>
+
+          <li>Scoresby, K. J., Strand, E. B., Ng, Z., Brown, K. C., Stilz, C. R., Strobel, K., Barroso, C. S., &amp; Souza, M. (2021). <em>Pet ownership and quality of life: A systematic review of the literature</em>. <em>Veterinary Sciences, 8</em>(12), 332. <a href="https://doi.org/10.3390/vetsci8120332" target="_blank">https://doi.org/10.3390/vetsci8120332</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+   <footer class="bg-[var(--dark-green)] text-[var(--ivory)] px-5 md:px-10 py-12 text-center">
+      <p class="text-xs opacity-60">©Mars Luay 2025.</p>
+    </footer>
+
+    <!-- ===== Parallax script ===== -->
+    <script>
+      const layers = document.querySelectorAll('.parallax');
+      let ticking = false;
+      function updateParallax() {
+        const y = window.scrollY;
+        layers.forEach((el) => {
+          const speed = parseFloat(el.dataset.speed) || 0;
+          el.style.transform = `translate3d(-50%, ${-(y * speed)}px, 0)`;
+        });
+        ticking = false;
+      }
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      });
+    </script>
+    <!-- ===== Custom cursor bubble script ===== -->
+    <script>
+  const cursorBubble = document.getElementById('cursorBubble');
+
+  // Re-use requestAnimationFrame for performance (similar to your parallax code)
+  let bubbleTicking = false;
+  function moveBubble(x, y) 
+  {
+    cursorBubble.style.transform =
+      `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+    bubbleTicking = false;
+  }
+
+  document.addEventListener('mousemove', (e) => 
+  {
+    if (!bubbleTicking) {
+      requestAnimationFrame(() => moveBubble(e.clientX, e.clientY));
+      bubbleTicking = true;
+    }
+  });
+    </script>
+
+  </body>
+</html>
